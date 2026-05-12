@@ -1,98 +1,158 @@
-# ROS2 Robot Arm - Pick and Place
+# 🤖 ROS2 Robot Arm — Autonomous Pick and Place
 
-A ROS2 + C++ implementation of autonomous pick and place using the Franka Panda robot arm and MoveIt2 motion planning.
+<p align="center">
+  <img src="https://img.shields.io/badge/ROS2-Jazzy-22314E?style=for-the-badge&logo=ros&logoColor=white" alt="ROS2"/>
+  <img src="https://img.shields.io/badge/C++-17-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++"/>
+  <img src="https://img.shields.io/badge/MoveIt2-Motion%20Planning-2BAF2B?style=for-the-badge" alt="MoveIt2"/>
+  <img src="https://img.shields.io/badge/Ubuntu-24.04-E95420?style=for-the-badge&logo=ubuntu&logoColor=white" alt="Ubuntu"/>
+</p>
 
-## Demo
+<p align="center">
+  <b>A fully autonomous pick-and-place system built with ROS2 and C++, using the Franka Panda robot arm.</b>
+</p>
 
-The robot arm autonomously:
-1. Sets up a realistic workspace (2 black tables, blue box, wooden floor, wall, vase)
-2. Opens gripper and approaches the blue box on Table 1
-3. Lowers, grasps the box with the gripper
-4. Lifts and transports the box to Table 2
-5. Places the box gently and releases
-6. Returns to home position
+---
 
-## Tech Stack
+## ✨ What it does
 
-- **ROS2 Jazzy** (Ubuntu 24.04)
-- **C++17** with rclcpp
-- **MoveIt2** for motion planning
-- **RViz2** for visualization
-- **Franka Panda** 7-DOF robot arm
+The robot arm autonomously performs a complete pick-and-place sequence in a realistic workspace:
 
-## Requirements
+1. 🛠️ Sets up the scene — wooden floor, back wall, two black tables, a blue package, and a decorative vase
+2. 🤲 Opens the gripper and approaches the blue box on **Table 1**
+3. ⬇️ Lowers smoothly using Cartesian path planning
+4. ✊ Closes the gripper and grasps the box
+5. ⬆️ Lifts and transports the box to **Table 2** (different height)
+6. 📦 Places the box gently on Table 2 and releases
+7. 🏠 Returns to home position
 
-- Ubuntu 24.04
-- ROS2 Jazzy installed
-- MoveIt2 installed
+---
 
-## Installation
+## 🧰 Tech Stack
+
+| Component | Used For |
+|-----------|----------|
+| **ROS2 Jazzy** | Robotics middleware |
+| **C++17 / rclcpp** | Robot control logic |
+| **MoveIt2** | Motion planning & inverse kinematics |
+| **RViz2** | 3D visualization |
+| **Franka Panda** | 7-DOF robot arm model |
+| **Cartesian Paths** | Smooth straight-line motion |
+
+---
+
+## 📋 Requirements
+
+- Ubuntu 24.04 LTS
+- ROS2 Jazzy installed ([Install Guide](https://docs.ros.org/en/jazzy/Installation.html))
+- MoveIt2 for ROS2 Jazzy
+
+---
+
+## ⚙️ Installation
+
+### 1️⃣ Install required packages
 
 ```bash
-# Install ROS2 Jazzy if not already installed
-# See: https://docs.ros.org/en/jazzy/Installation.html
-
-# Install required packages
+sudo apt update
 sudo apt install -y \
   ros-jazzy-moveit \
   ros-jazzy-moveit-resources \
   ros-jazzy-rviz2 \
   python3-colcon-common-extensions
+```
 
-# Clone this repo into your ROS2 workspace src folder
+### 2️⃣ Clone this repository
+
+```bash
 mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws/src
 git clone https://github.com/framroze/ros2-robot-arm.git
 cp -r ros2-robot-arm/robot_arm_pkg .
+```
 
-# Build
+### 3️⃣ Build the package
+
+```bash
 cd ~/ros2_ws
 source /opt/ros/jazzy/setup.bash
 colcon build --packages-select robot_arm_pkg
 ```
 
-## How to Run
+---
 
-Open two terminals.
+## 🚀 How to Run
 
-**Terminal 1** (launch MoveIt2 with Panda arm):
+Open **two terminals**.
+
+### 🖥️ Terminal 1 — Launch MoveIt2 with Panda Arm
+
 ```bash
 source /opt/ros/jazzy/setup.bash
 ros2 launch moveit_resources_panda_moveit_config demo.launch.py
 ```
 
-**Terminal 2** (run pick and place):
+> RViz2 will open showing the robot arm.
+
+### 🖥️ Terminal 2 — Run the Pick and Place
+
 ```bash
 cd ~/ros2_ws
 source install/setup.bash
 ros2 run robot_arm_pkg arm_controller
 ```
 
-## Project Structure
+> Watch the arm autonomously perform pick and place in RViz2. 🎉
+
+---
+
+## 📂 Project Structure
+
+```text
 ros2-robot-arm/
-├── robot_arm_pkg/
+│
+├── robot_arm_pkg/                  ROS2 package
 │   ├── src/
-│   │   └── arm_controller.cpp    # Main pick and place logic
-│   ├── CMakeLists.txt
-│   └── package.xml
-├── PROGRESS.md                   # Development progress notes
-└── README.md
+│   │   └── arm_controller.cpp      Main pick and place logic
+│   ├── CMakeLists.txt              Build configuration
+│   └── package.xml                 Package manifest
+│
+├── PROGRESS.md                     Development notes
+└── README.md                       This file
+```
 
-## Concepts Demonstrated
+---
 
-- ROS2 nodes, topics, publishers, subscribers
-- C++ node structure with rclcpp
-- MoveIt2 motion planning interface
-- Planning scene with collision objects
-- Gripper control (open/close)
-- Object attach/detach for manipulation
-- Cartesian path planning for smooth motion
-- Pick and place programming in C++
+## 🧠 Concepts Demonstrated
 
-## Author
+- ✅ ROS2 nodes, topics, publishers, subscribers
+- ✅ C++ node structure using `rclcpp`
+- ✅ MoveIt2 motion planning interface
+- ✅ Planning scene with collision objects
+- ✅ Gripper control (open / close)
+- ✅ Object attach / detach during manipulation
+- ✅ Cartesian path planning for smooth motion
+- ✅ Pick-and-place programming in C++
+- ✅ Building ROS2 packages with `colcon` and `CMakeLists.txt`
 
-framroze - [GitHub](https://github.com/framroze)
+---
 
-## License
+## 🎬 Highlights
 
-Open source for educational use.
+- 🟢 **Real Franka Panda model** — Industry-grade 7-DOF robot arm
+- 🟢 **Realistic workspace** — Wooden floor, wall, two black tables, vase
+- 🟢 **Smooth Cartesian motion** — Straight-line paths for natural movement
+- 🟢 **Full grasp control** — Gripper opens, closes, attaches, releases
+- 🟢 **Clean modular C++** — Reusable helper functions for any pose target
+
+---
+
+## 👤 Author
+
+**framroze**  
+🌐 GitHub: [@framroze](https://github.com/framroze)
+
+---
+
+## 📜 License
+
+Open source — free for educational and personal use.
