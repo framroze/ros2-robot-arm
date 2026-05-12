@@ -32,12 +32,12 @@ Terminal 2 (Pick and Place):
 - source install/setup.bash
 - ros2 run robot_arm_pkg arm_controller
 
-## Project 1 - Robot Arm - COMPLETE ✅
+## Project 1 - Robot Arm - IN PROGRESS 🔄
 - Franka FR3 real robot arm visualized in RViz2 ✅
 - MoveIt2 motion planning working ✅
 - C++ node controlling arm programmatically ✅
-- Full pick and place sequence (6 steps) ✅
-- All code pushed to GitHub ✅
+- Basic pick and place sequence (6 steps) ✅
+- PENDING: Add real box object, actual grasp and place ❌
 
 ## Concepts Learned
 - ROS2 nodes, topics, publishers
@@ -50,5 +50,5 @@ Terminal 2 (Pick and Place):
 - Pick and place programming in C++
 
 ## Current Status
-- PROJECT 1 COMPLETE ✅
-- NEXT: Start Project 2 - Mobile Robot with LiDAR, Camera, SLAM, Navigation
+- PROJECT 1 IN PROGRESS 🔄
+- NEXT: Add box to scene, arm picks it up and places it to another location
