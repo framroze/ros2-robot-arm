@@ -1,9 +1,8 @@
-# ROS2 Internship Progress
+# ROS2 Robot Arm - Development Notes
 
-## Profile
+## System Info
 - GitHub: https://github.com/framroze
-- Ubuntu 24.04, Miniconda installed, MuJoCo experience
-- Goal: internship with Talha (needs ROS2 + C++ projects)
+- Ubuntu 24.04, Miniconda installed
 
 ## Repos
 - ~/ros2-robot-arm → git@github.com:framroze/ros2-robot-arm.git
