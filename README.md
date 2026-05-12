@@ -5,6 +5,7 @@
   <img src="https://img.shields.io/badge/C++-17-00599C?style=for-the-badge&logo=cplusplus&logoColor=white" alt="C++"/>
   <img src="https://img.shields.io/badge/MoveIt2-Motion%20Planning-2BAF2B?style=for-the-badge" alt="MoveIt2"/>
   <img src="https://img.shields.io/badge/Ubuntu-24.04-E95420?style=for-the-badge&logo=ubuntu&logoColor=white" alt="Ubuntu"/>
+  <img src="https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge" alt="License"/>
 </p>
 
 <p align="center">
@@ -107,18 +108,14 @@ ros2 run robot_arm_pkg arm_controller
 
 ## 📂 Project Structure
 
-```text
-ros2-robot-arm/
-│
-├── robot_arm_pkg/                  ROS2 package
-│   ├── src/
-│   │   └── arm_controller.cpp      Main pick and place logic
-│   ├── CMakeLists.txt              Build configuration
-│   └── package.xml                 Package manifest
-│
-├── PROGRESS.md                     Development notes
-└── README.md                       This file
-```
+| Path | Description |
+|------|-------------|
+| 📦 [`robot_arm_pkg/`](robot_arm_pkg/) | ROS2 C++ package |
+| 📄 [`robot_arm_pkg/src/arm_controller.cpp`](robot_arm_pkg/src/arm_controller.cpp) | Main pick and place logic |
+| 📄 [`robot_arm_pkg/CMakeLists.txt`](robot_arm_pkg/CMakeLists.txt) | Build configuration |
+| 📄 [`robot_arm_pkg/package.xml`](robot_arm_pkg/package.xml) | Package manifest |
+| 📝 [`PROGRESS.md`](PROGRESS.md) | Development notes |
+| 📖 [`README.md`](README.md) | This file |
 
 ---
 
@@ -155,4 +152,4 @@ ros2-robot-arm/
 
 ## 📜 License
 
-Open source — free for educational and personal use.
+This project is licensed under the **MIT License** — see the [LICENSE](LICENSE) file for details.
