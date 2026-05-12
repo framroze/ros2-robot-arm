@@ -12,31 +12,43 @@
 ## Workspace
 - ROS2 workspace: ~/ros2_ws
 - Robot arm package: ~/ros2_ws/src/robot_arm_pkg
-- Franka FR3 package: ~/ros2_ws/src/franka_description
+- Franka description: ~/ros2_ws/src/franka_description
 
-## Setup Completed
-- Git + SSH connected to GitHub ✅
-- Both repos cloned to Ubuntu ✅
-- ROS2 Jazzy installed and working ✅
-- First C++ ROS2 node written and running ✅
-- Gazebo Harmonic installed ✅
-- Franka FR3 real robot arm visualized in RViz2 ✅
-- All code pushed to GitHub ✅
-
-## Commands to Resume
-- cd ~/ros2_ws
+## IMPORTANT - Build Fix (Miniconda conflict)
+Always run these before building:
+- rm -rf build/robot_arm_pkg (only if build fails)
+- export PATH=/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin
+- export LD_LIBRARY_PATH=/opt/ros/jazzy/lib:/usr/lib/x86_64-linux-gnu
+- export LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LIBRARY_PATH
 - source /opt/ros/jazzy/setup.bash
+
+## Commands to Run Project
+Terminal 1 (MoveIt2 demo):
+- source /opt/ros/jazzy/setup.bash
+- ros2 launch moveit_resources_panda_moveit_config demo.launch.py
+
+Terminal 2 (Pick and Place):
+- cd ~/ros2_ws
 - source install/setup.bash
-- ros2 launch franka_description visualize_franka.launch.py robot_type:=fr3
+- ros2 run robot_arm_pkg arm_controller
+
+## Project 1 - Robot Arm - COMPLETE ✅
+- Franka FR3 real robot arm visualized in RViz2 ✅
+- MoveIt2 motion planning working ✅
+- C++ node controlling arm programmatically ✅
+- Full pick and place sequence (6 steps) ✅
+- All code pushed to GitHub ✅
 
 ## Concepts Learned
 - ROS2 nodes, topics, publishers
 - C++ node structure with rclcpp
-- Building with colcon
-- CMakeLists.txt for ROS2
+- Building with colcon, CMakeLists.txt
 - URDF robot description format
 - RViz2 visualization
 - TF transforms
+- MoveIt2 motion planning
+- Pick and place programming in C++
 
 ## Current Status
-- NEXT STEP: Install MoveIt2 and make the Franka arm do pick and place
+- PROJECT 1 COMPLETE ✅
+- NEXT: Start Project 2 - Mobile Robot with LiDAR, Camera, SLAM, Navigation
