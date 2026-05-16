@@ -140,7 +140,11 @@ pip install catkin-pkg lark empy==3.3.4 --force-reinstall
 | Path | Description |
 |------|-------------|
 | 📦 [`robot_arm_pkg/`](robot_arm_pkg/) | ROS2 C++ package |
-| 📄 [`robot_arm_pkg/src/arm_controller.cpp`](robot_arm_pkg/src/arm_controller.cpp) | Main pick and place logic |
+| 📄 [`robot_arm_pkg/src/main.cpp`](robot_arm_pkg/src/main.cpp) | Entry point — initializes node and runs mission |
+| 📄 [`robot_arm_pkg/src/pick_and_place.cpp`](robot_arm_pkg/src/pick_and_place.cpp) | Pick and place motion logic |
+| 📄 [`robot_arm_pkg/src/scene_manager.cpp`](robot_arm_pkg/src/scene_manager.cpp) | Builds the 3D scene — tables, box, floor, vase |
+| 📄 [`robot_arm_pkg/include/robot_arm_pkg/pick_and_place.hpp`](robot_arm_pkg/include/robot_arm_pkg/pick_and_place.hpp) | PickAndPlace class header |
+| 📄 [`robot_arm_pkg/include/robot_arm_pkg/scene_manager.hpp`](robot_arm_pkg/include/robot_arm_pkg/scene_manager.hpp) | SceneManager class header |
 | 📄 [`robot_arm_pkg/CMakeLists.txt`](robot_arm_pkg/CMakeLists.txt) | Build configuration |
 | 📄 [`robot_arm_pkg/package.xml`](robot_arm_pkg/package.xml) | Package manifest |
 | 📝 [`PROGRESS.md`](PROGRESS.md) | Development notes |
