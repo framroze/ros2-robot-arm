@@ -63,27 +63,23 @@ sudo apt install -y \
   git
 ```
 
-### 2️⃣ Set up your ROS2 workspace
+### 2️⃣ Clone this repository
 
 ```bash
 mkdir -p ~/ros2_ws/src
 cd ~/ros2_ws/src
-```
-
-### 3️⃣ Clone this repository
-
-```bash
 git clone https://github.com/framroze/ros2-robot-arm.git
 cp -r ros2-robot-arm/robot_arm_pkg .
 ```
 
-### 4️⃣ Clone the Franka Description (robot model)
+### 3️⃣ Clone the Franka robot model (required)
 
 ```bash
+cd ~/ros2_ws/src
 git clone https://github.com/frankaemika/franka_description.git
 ```
 
-### 5️⃣ Build the workspace
+### 4️⃣ Build the package
 
 ```bash
 cd ~/ros2_ws
@@ -120,9 +116,7 @@ ros2 run robot_arm_pkg arm_controller
 
 ## 🩺 Troubleshooting
 
-### Build error with `libssl` or `libcrypto` (Miniconda / Anaconda users)
-
-If `colcon build` fails with errors about `libssl.so.3` or `libcurl.so.4`, your Conda environment is conflicting with ROS2. Run these commands and rebuild:
+### Build fails with `libssl` or `libcrypto` errors (Miniconda/Anaconda users)
 
 ```bash
 rm -rf build/robot_arm_pkg
@@ -133,7 +127,7 @@ source /opt/ros/jazzy/setup.bash
 colcon build --packages-select robot_arm_pkg
 ```
 
-### Python module errors (`catkin_pkg`, `empy`, etc.)
+### Python module errors (`catkin_pkg`, `empy`)
 
 ```bash
 pip install catkin-pkg lark empy==3.3.4 --force-reinstall
