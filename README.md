@@ -63,7 +63,7 @@ sudo apt install -y \
   git
 ```
 
-### 2️⃣ Clone this repository
+### 2️⃣ Set up workspace and clone this repo
 
 ```bash
 mkdir -p ~/ros2_ws/src
@@ -119,6 +119,7 @@ ros2 run robot_arm_pkg arm_controller
 ### Build fails with `libssl` or `libcrypto` errors (Miniconda/Anaconda users)
 
 ```bash
+cd ~/ros2_ws
 rm -rf build/robot_arm_pkg
 export PATH=/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin
 export LD_LIBRARY_PATH=/opt/ros/jazzy/lib:/usr/lib/x86_64-linux-gnu
@@ -155,12 +156,12 @@ pip install catkin-pkg lark empy==3.3.4 --force-reinstall
 ## 🧠 Concepts Demonstrated
 
 - ✅ ROS2 nodes, topics, publishers, subscribers
-- ✅ C++ node structure using `rclcpp`
+- ✅ Modular C++ architecture — separated headers, source files, and entry point
 - ✅ MoveIt2 motion planning interface
-- ✅ Planning scene with collision objects
+- ✅ Planning scene with collision objects (tables, box, floor, vase)
 - ✅ Gripper control (open / close)
 - ✅ Object attach / detach during manipulation
-- ✅ Cartesian path planning for smooth motion
+- ✅ Cartesian path planning for smooth straight-line motion
 - ✅ Pick-and-place programming in C++
 - ✅ Building ROS2 packages with `colcon` and `CMakeLists.txt`
 
@@ -172,13 +173,13 @@ pip install catkin-pkg lark empy==3.3.4 --force-reinstall
 - 🟢 **Realistic workspace** — Wooden floor, wall, two black tables, vase
 - 🟢 **Smooth Cartesian motion** — Straight-line paths for natural movement
 - 🟢 **Full grasp control** — Gripper opens, closes, attaches, releases
-- 🟢 **Clean modular C++** — Reusable helper functions for any pose target
+- 🟢 **Modular C++ codebase** — Clean separation of concerns across multiple files
 
 ---
 
 ## 👤 Author
 
-**framroze**  
+**framroze**
 🌐 GitHub: [@framroze](https://github.com/framroze)
 
 ---
