@@ -14,14 +14,16 @@
 
 ## ⚠️ Important — Build Fix (Miniconda Conflict)
 
-If `colcon build` fails due to library conflicts with Miniconda, run these commands before building:
+If `colcon build` fails due to library conflicts with Miniconda:
 
 ```bash
+cd ~/ros2_ws
 rm -rf build/robot_arm_pkg
 export PATH=/usr/bin:/usr/local/bin:/bin:/usr/sbin:/sbin
 export LD_LIBRARY_PATH=/opt/ros/jazzy/lib:/usr/lib/x86_64-linux-gnu
 export LIBRARY_PATH=/usr/lib/x86_64-linux-gnu:$LIBRARY_PATH
 source /opt/ros/jazzy/setup.bash
+colcon build --packages-select robot_arm_pkg
 ```
 
 ---
@@ -47,13 +49,13 @@ ros2 run robot_arm_pkg arm_controller
 
 - [x] Franka Panda professional robot arm visualized in RViz2
 - [x] MoveIt2 motion planning fully working
-- [x] C++ code controls the arm programmatically
-- [x] Realistic workspace built: wooden floor, back wall, 2 black tables, blue box, red vase
+- [x] Realistic workspace: wooden floor, back wall, 2 black tables, blue box, red vase
 - [x] Full pick and place — gripper opens, lowers, grasps the box
 - [x] Lifts and carries box from **Table 1** to **Table 2**
 - [x] Places box gently and releases
 - [x] Returns to home position
 - [x] Cartesian path planning for smooth motion
+- [x] Refactored into modular C++ architecture (headers + source files)
 - [x] All code pushed to GitHub
 
 ---
@@ -61,9 +63,8 @@ ros2 run robot_arm_pkg arm_controller
 ## 🧠 Concepts Learned
 
 - ROS2 nodes, topics, publishers, subscribers
-- C++ node structure with `rclcpp`
+- Modular C++ architecture with header files
 - Building with `colcon` and `CMakeLists.txt`
-- URDF robot description format
 - RViz2 visualization
 - TF transforms
 - MoveIt2 motion planning
