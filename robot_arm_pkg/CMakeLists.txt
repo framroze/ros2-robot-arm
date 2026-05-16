@@ -32,9 +32,6 @@ ament_target_dependencies(arm_controller
 install(TARGETS arm_controller
   DESTINATION lib/${PROJECT_NAME})
 
-install(DIRECTORY urdf launch
-  DESTINATION share/${PROJECT_NAME})
-
 install(DIRECTORY include/
   DESTINATION include/)
 
